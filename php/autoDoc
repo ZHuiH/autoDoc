@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+require './vendor/autoload.php';
+
+use Auto\Doc\Console\Printf;
+
+$options = [
+    'output' => "./doc.json",
+    'version' => "1.0",
+    'render' => 2.0,
+    'title' => "",
+];
+$aliases = [
+    'o' => 'output',
+    'v' => 'version',
+    't' => 'title',
+];
+if ($argc < 2) {
+    dd('缺少路径 格式 php .\autoDoc xxxxx');
+}
+$path = $argv[1];
+for ($i = 2; $i < $argc; $i++) {
+    $arg = $argv[$i];
+
+    $key = "";
+    //长参数
+    if (substr($arg, 2) === '--') {
+        $key = substr($arg, 2);
+    } else if ($arg[0] === '-') {
+        //短参数
+        $key = $aliases[substr($arg, 1)] ?? '';
+    }
+    if (isset($options[$key])) {
+        if ($argv[$i + 1][0] == '-') {
+            Printf::error("参数:{$arg} 值错误");
+            die;
+        }
+        $options[$key] = $argv[$i + 1];
+    }
+}
+
+$files = new \Auto\Doc\Analyze\Scan($path);
+$kernel = new \Auto\Doc\Keyword\Kernel();
+$notes = [];
+foreach ($files as $item) {
+    $note = $kernel->boot($item);
+    if ($note) {
+        $notes = array_merge($notes, $note);
+    }
+};
+$result = [
+    'title' => $options['title'],
+    'version' => $options['version'],
+    'render' => $options['render'],
+    'content' => $kernel->merge($notes),
+];
+file_put_contents('./data.json', json_encode($result));
