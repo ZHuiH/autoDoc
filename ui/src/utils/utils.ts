@@ -21,7 +21,6 @@ axios.interceptors.response.use((response:AxiosResponse):any=>{
 });
 
 class Utils{
-
     //请求
     static request=(method:string,url:string,param?:any):Promise<any>=>{
         let config:any={

@@ -1,5 +1,5 @@
 import React from "react";
-import {Empty,Collapse,Tag,Tabs} from "antd";
+import {Empty,Collapse,Descriptions,Tabs} from "antd";
 import {store} from "../../store/index"
 import {v2Apis} from "../../store/format"
 import {Param,apiParam} from "./param"
@@ -13,18 +13,34 @@ type apiBody={
     response?:Array<apiResponse>
     auth?:Array<apiAuth>
 }
-export  class Index extends React.Component<any,v2Apis>{
+
+interface HomeState extends v2Apis{
+    title:string
+    version:string
+    render:number
+}
+
+export  class Index extends React.Component<any,HomeState>{
     constructor(props:any){
         super(props);
         this.state={
             apis:[],
-            group:""
+            group:"",
+            render:0,
+            version:"",
+            title:"",
         };
         store.subscribe(()=>{
-            let goups=store.getState().currentGroup
-            if(goups){
-                this.setState(goups)
-            }
+            let goups=store.getState().currentGroup??{apis:[],group:""}
+            let fileInfo=store.getState().current
+            this.setState({
+                apis:goups.apis,
+                group:goups.group,
+                render:fileInfo.render ?? 0,
+                version:fileInfo.version ?? "",
+                title:fileInfo.title ?? "",
+            })
+        
         })
     }
     //折叠面板里面的内容
@@ -66,12 +82,26 @@ export  class Index extends React.Component<any,v2Apis>{
         return this.apis()
     }
 
+    private fileInfo():JSX.Element{
+        if(this.state.render > 0 && this.state.version){
+            return (
+                <Descriptions title="文档信息">
+                    <Descriptions.Item label="标题：">{this.state.title}</Descriptions.Item>
+                    <Descriptions.Item label="版本：">{this.state.version}</Descriptions.Item>
+                    <Descriptions.Item label="渲染版本：">{this.state.render}</Descriptions.Item>
+                </Descriptions>
+            );
+        }
+        return <div></div>
+    }
+
     /**
      * render
      */
     public render():JSX.Element {
         return (
             <div className="content-main">
+                {this.fileInfo()}
                 {this.invoke()}
             </div>
         );

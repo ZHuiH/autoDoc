@@ -1,6 +1,6 @@
 import React from "react";
 import {RouteComponentProps,withRouter} from "react-router-dom";
-import { Layout,Menu as AntdMenu } from 'antd';
+import { Layout,Menu as AntdMenu ,Empty} from 'antd';
 import {store} from "../../store/index"
 import {v2Data} from "../../store/format"
 import {change} from "../../store/action"
@@ -31,14 +31,22 @@ class Menu extends React.Component<RouteComponentProps,MenuState>{
     /**
      * menu
      */
-    private menu() {
-            return this.state.data.content.map((item,index)=>{
-                return (
-                    <AntdMenu.Item key={`menu-${index}`}>
-                        {item.group}
-                    </AntdMenu.Item>
-                )
-            })
+    private menu():JSX.Element {
+        if(this.state.data.content.length<1){
+            return <Empty description="空菜单"/>
+        }
+        let item= this.state.data.content.map((item,index)=>{
+            return (
+                <AntdMenu.Item key={`menu-${index}`}>
+                    {item.group}
+                </AntdMenu.Item>
+            )
+        })
+        return (
+            <AntdMenu onSelect={({key})=>this.click(key as string)}>
+                {item}
+            </AntdMenu>
+        );
     }
 
     private click(key:string) {
@@ -60,14 +68,11 @@ class Menu extends React.Component<RouteComponentProps,MenuState>{
      * show
      */
     private show():JSX.Element {
-        let render=Utils.getQuery(Utils.render)
-        if(render && render=='v2'){
+        if(document.location.pathname =='/'){
             this.restore();
             return (
                 <Layout.Sider>
-                    <AntdMenu onSelect={({key})=>this.click(key as string)}>
-                        {this.menu()}
-                    </AntdMenu>
+                    {this.menu()}
                 </Layout.Sider>
             );
         }

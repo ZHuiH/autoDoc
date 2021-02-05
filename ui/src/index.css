@@ -23,3 +23,11 @@ body {
   margin: auto;
   padding-top:12px;
 }
+
+.no-fund-main{
+  transform:translateY(50%);
+}
+.no-fund-search{
+  width: 50%;
+  margin: auto;
+}

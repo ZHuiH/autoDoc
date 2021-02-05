@@ -107,8 +107,7 @@ export default class Header extends React.Component<{},headerState>{
      * render
      */
     public render() {
-        let render=Utils.getQuery(Utils.render);
-        if(render !=='v2'){
+        if(document.location.pathname !=='/'){
             return <div></div>
         }
         return (
