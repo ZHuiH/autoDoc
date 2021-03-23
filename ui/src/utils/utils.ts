@@ -22,39 +22,19 @@ axios.interceptors.response.use((response:AxiosResponse):any=>{
 
 class Utils{
     //请求
-    static request=(method:string,url:string,param?:any):Promise<any>=>{
-        let config:any={
+    static request(method:Method,url:string,data?:any,headers?:any):Promise<any>{
+        let config:AxiosRequestConfig={
             url:url,
             method:method,
-            headers:{
-                "content-type":"application/json; charset=UTF-8",
-                "token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyQWdlbnQiOiIwOThmNmJjZDQ2MjFkMzczY2FkZTRlODMyNjI3YjRmNiIsInRva2VuIjoiYjk1ZWJiNWJkMzFlMzc5Y2JlZDFmYzc1YjNhY2FmNTUiLCJjcmVhdGVUaW1lIjoxNTg5ODc4NzcxfQ.snBq4thmKvSJtnNOgEZKbVIW7HP1swsQvoclC_BKcqQ"
-            },
-            withCredentials:false,
-            timeout: 30000,
+            headers:headers
         };
-        if(param){
-            if(method==='get'){
-                config['params']=param;
-            }else{
-                config['data']=param;
-            }
-        }
-        return new Promise((resolve,reject)=>{
-            axios.request(config).then(res=>{
-                if(res){
-                    resolve(res);
-                }
-                reject(res);
-            }).catch(err=>{
-                message.destroy();
-                message.error('请求失败！');
-                reject(err);
-            });
-        });
+        method=="get"? config.params=data : config.data=data
+        message.destroy();
+        return axios.request(config).then(res=>res).catch(e=>{
+            message.error('请求失败！');
+            console.log(e)
+        })
     }
-
-    static render='render';
 
     //新增
     static addQuery(key:string,value:string|number){
@@ -83,17 +63,9 @@ class Utils{
         let query=new URLSearchParams(document.location.search);
         return query.get(key);
     }
-    //删除
-    // static removeQuery(key:string){
-    //     let search=document.location.search;
-    //     let regexp= new RegExp(`[\?\&]?${key}=[\\w\\d.]*`);
-    //     let url=search.replace(regexp,'');
-    //     console.log(url,regexp)
-    //     if(url==='?'){
-    //         url="";
-    //     }
-    //     window.history.pushState(null,'',url);
-    // }
+    static getQueryStr(){
+        return document.location.search;
+    }
 }
 
 export default Utils;

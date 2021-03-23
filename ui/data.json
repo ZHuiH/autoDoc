@@ -1,1 +1,213 @@
-{"path":".\/app","version":"1.0","title":"","baseHost":"","mode":2,"output":".\/data.json","group":{"\u7b56\u5212\u9875\u9762\u5217\u8868":{"\u9875\u9762":{"api":[{"descriptions":["\u83b7\u53d6\u5e97\u94fa\u7684\u6240\u6709\u7b56\u5212\u9875\u9762\u8bb0\u5f55"],"url":{"method":"get","path":"\/scheme\/record","description":""},"params":[{"type":"int","name":"page","required":false,"default":"1","description":""},{"type":"int","name":"pre_page","required":false,"default":"12","description":""},{"type":"string","name":"name","required":false,"default":null,"description":"\u8bb0\u5f55\u540d\u79f0"},{"type":"int","name":"is_archive","required":false,"default":null,"description":"\u662f\u5426\u5f52\u6863"},{"type":"int","name":"group_id","required":false,"default":null,"description":"\u5206\u7ec4id"},{"type":"date","name":"created_start_date","required":false,"default":null,"description":"\u521b\u5efa\u5f00\u59cb\u65f6\u95f4"},{"type":"date","name":"created_end_date","required":false,"default":null,"description":"\u521b\u5efa\u7ed3\u675f\u65f6\u95f4"},{"type":"date","name":"archived_start_date","required":false,"default":null,"description":"\u5f52\u6863\u5f00\u59cb\u65f6\u95f4"},{"type":"date","name":"archived_end_date","required":false,"default":null,"description":"\u5f52\u6863\u7ed3\u675f\u65f6\u95f4"}],"return_format":{"type":"object","child":[{"type":"int","name":"current_page","child":[]},{"type":"array","name":"data","child":[{"type":"int","name":"id","child":[]},{"type":"string","name":"name","child":[]},{"type":"int","name":"platform","child":[]},{"type":"string","name":"status","child":[]},{"type":"date","name":"created_at","child":[]},{"type":"date","name":"updated_at","child":[]},{"type":"date","name":"goods_used_at","child":[]},{"type":"int","name":"is_archive","child":[]},{"type":"int","name":"group_id","child":[]},{"type":"int","name":"status","child":[]},{"type":"string","name":"group_name","child":[]},{"type":"array","name":"operating","child":[{"type":"string","name":"name","child":[]},{"type":"string","name":"status","child":[]}]}]}]},"return_example":"{\"current_page\":1,\"data\":[{\"id\":46,\"name\":\"navigation-element\",\"platform_id\":2,\"goods_used_at\":null,\"created_at\":\"2020-05-1120:26:50\",\"updated_at\":\"2020-05-1120:26:50\",\"is_archive\":0,\"archived_at\":null,\"user_id\":4,\"status\":3,\"group_id\":0,\"operating\":[{\"slug\":\"pc\",\"name\":\"PC\u7aef\",\"status\":0},{\"slug\":\"mobile\",\"name\":\"\u79fb\u52a8\u7aef\",\"status\":1},{\"slug\":\"import-goods\",\"name\":\"\u5bfc\u5165\u5546\u54c1\u4ef7\u683c\",\"status\":1},{\"slug\":\"export-goods\",\"name\":\"\u5bfc\u51fa\",\"status\":0},{\"slug\":\"sync\",\"name\":\"\u540c\u6b65\",\"status\":0},{\"slug\":\"copy\",\"name\":\"\u590d\u5236\",\"status\":1},{\"slug\":\"archive\",\"name\":\"\u5f52\u6863\",\"status\":1}],\"group_name\":\"\u65e0\u5206\u7ec4\"}]}"},{"descriptions":["\u65b0\u589e\u5e97\u94fa\u7684\u8bb0\u5f55"],"url":{"method":"post","path":"\/scheme\/record","description":""},"params":[{"type":"string","name":"name","required":true,"default":null,"description":""},{"type":"int","name":"group_id","required":false,"default":"0","description":"\u5206\u7ec4id"},{"type":"object","name":"data","required":true,"default":null,"description":"\u6a21\u7248\u4fe1\u606f"},{"type":"int","name":"user_id","required":false,"default":null,"description":"\u6b63\u5e38\u6d41\u7a0b\u662f\u767b\u9646\u4e4b\u540e\u7f51\u5173\u4f1a\u81ea\u52a8\u5e26\u8fc7\u6765"},{"type":"string","name":"platform","required":false,"default":null,"description":"\u6b63\u5e38\u6d41\u7a0b\u662f\u767b\u9646\u4e4b\u540e\u7f51\u5173\u4f1a\u81ea\u52a8\u5e26\u8fc7\u6765"}]},{"descriptions":["\u4fee\u6539\u5e97\u94fa\u7684\u8bb0\u5f55\u7684\u57fa\u672c\u4fe1\u606f"],"url":{"method":"put","path":"\/scheme\/record\/{record_id}","description":""},"params":[{"type":"string","name":"name","required":false,"default":null,"description":"\u9875\u9762\u6807\u9898"},{"type":"int","name":"group_id","required":false,"default":null,"description":"\u5206\u7ec4id"},{"type":"int","name":"is_archive","required":false,"default":null,"description":"\u5f52\u6863"}]},{"descriptions":["\u590d\u5236\u4e00\u4efd\u5e97\u94fa\u7684\u8bb0\u5f55"],"url":{"method":"get","path":"\/scheme\/record\/{record_id}\/copy","description":""}}],"info":{"descriptions":["\u7b56\u5212\u8bb0\u5f55"]}},"\u5206\u7ec4":{"api":[{"descriptions":["\u83b7\u53d6\u5e97\u94fa\u7684\u6240\u6709\u7b56\u5212\u9875\u9762\u8bb0\u5f55\u5206\u7ec4"],"url":{"method":"get","path":"\/scheme\/record\/group","description":""},"return_format":{"type":"array","child":[{"type":"int","name":"id","child":[]},{"type":"string","name":"name","child":[]}]},"return_example":"[{\"id\":1,\"name\":\"test\"}]"},{"descriptions":["\u65b0\u589e\u5e97\u94fa\u7684\u8bb0\u5f55\u5206\u7ec4"],"url":{"method":"post","path":"\/scheme\/record\/group","description":""},"params":[{"type":"string","name":"name","required":true,"default":null,"description":""},{"type":"int","name":"user_id","required":true,"default":null,"description":"\u6b63\u5e38\u6d41\u7a0b\u662f\u767b\u9646\u4e4b\u540e\u7f51\u5173\u4f1a\u81ea\u52a8\u5e26\u8fc7\u6765"}]},{"descriptions":["\u5220\u9664\u5e97\u94fa\u7684\u8bb0\u5f55\u5206\u7ec4"],"url":{"method":"delete","path":"\/scheme\/record\/group\/{group_id}","description":""}}],"info":{"descriptions":["\u7b56\u5212\u8bb0\u5f55\u5206\u7ec4"]}}},"\u7b56\u5212\u9875\u9762":{"\u9875\u9762":{"api":[{"descriptions":["\u83b7\u53d6\u9875\u9762\u5217\u8868"],"url":{"method":"get","path":"\/scheme\/record\/page\/{record_id}\/list","description":""},"return_format":{"type":"object","child":[{"type":"int","name":"current_page","child":[]},{"type":"array","name":"data","child":[{"type":"int","name":"id","child":[]},{"type":"string","name":"name","child":[]},{"type":"int","name":"page_record_id","child":[]},{"type":"int","name":"device","child":[]},{"type":"int","name":"page_type_id","child":[]}]}]},"params":[{"type":"string","name":"name","required":false,"default":null,"description":"\u9875\u9762\u540d\u79f0"},{"type":"int","name":"page_type_id","required":false,"default":null,"description":"\u9875\u9762\u7c7b\u578bid"}],"return_example":"{\"current_page\":1,\"data\":[{\"id\":14,\"page_record_id\":45,\"name\":\"\u9996\u9875\",\"device\":2,\"page_type_id\":1}]}"},{"descriptions":["\u9875\u9762\u5217\u8868\u589e\u52a0"],"url":{"method":"get","path":"\/scheme\/record\/page\/{page_id}\/type\/{page_type_id}","description":""},"return_format":{"type":"object","child":[{"type":"int","name":"id","child":[]}]},"return_example":"{\"id\":15}"},{"descriptions":["\u83b7\u53d6\u9875\u9762\u7c7b\u578b"],"url":{"method":"get","path":"\/scheme\/record\/page\/type","description":""},"return_format":{"type":"array","child":[{"type":"int","name":"id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"type","child":[]}]},"return_example":"[{\"id\":1,\"name\":\"\u9996\u9875\",\"type\":\"index\"}]"},{"descriptions":["\u83b7\u53d6\u9875\u9762\u8be6\u60c5"],"url":{"method":"get","path":"\/scheme\/record\/page\/{page_id}","description":""},"return_format":{"type":"object","child":[{"type":"int","name":"id","child":[]},{"type":"int","name":"page_record_id","child":[]},{"type":"string","name":"name","child":[]},{"type":"int","name":"device","child":[]},{"type":"int","name":"page_type_id","child":[]},{"type":"array","name":"modules","child":[{"type":"int","name":"id","child":[]},{"type":"int","name":"page_id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"icon","child":[]},{"type":"string","name":"desc","child":[]},{"type":"int","name":"sort","child":[]},{"type":"string","name":"type","child":[]},{"type":"object","name":"style","child":[]},{"type":"object","name":"filter","child":[]},{"type":"string","name":"remark","child":[]},{"type":"array","name":"group","child":[]},{"type":"string","name":"module_name","child":[]},{"type":"array","name":"individualization","child":[]},{"type":"string","name":"individualization_id","child":[]},{"type":"string","name":"individualization_name","child":[]},{"type":"array","name":"individualization_user_tags","child":[]},{"type":"array","name":"elements","child":[{"type":"int","name":"id","child":[]},{"type":"int","name":"module_id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"icon","child":[]},{"type":"string","name":"desc","child":[]},{"type":"int","name":"sort","child":[]},{"type":"object","name":"style","child":[]},{"type":"string","name":"type","child":[]},{"type":"string","name":"remark","child":[]},{"type":"string","name":"link","child":[]},{"type":"string","name":"group","child":[]},{"type":"array","name":"data","child":[]}]}]}]},"return_example":"{\"id\":16,\"page_record_id\":45,\"name\":\"\u4e0a\u65b0\",\"device\":2,\"page_type_id\":2,\"created_at\":\"2020-05-1110:55:27\",\"updated_at\":\"2020-05-1110:55:27\",\"modules\":[{\"id\":379,\"page_id\":16,\"name\":\"navigation-module\",\"icon\":\"icon-navigation-module\",\"desc\":\"\u7535\u68af\u5bfc\u822a\",\"sort\":1,\"type\":\"module\",\"style\":{\"backgroundImage\":null,\"backgroundRepeat\":\"no-repeat\",\"backgroundSize\":\"contain\"},\"filter\":{\"number\":5},\"created_at\":\"2020-05-1119:17:59\",\"updated_at\":\"2020-05-1119:17:59\",\"remark\":null,\"group\":[\"navigation\",\"navigation-collection\",\"text\",\"image\"],\"module_name\":\"\u7535\u68af\u5bfc\u822a\",\"individualization\":[],\"individualization_id\":\"individualization_id\",\"individualization_name\":\"\u9ed8\u8ba4\u7248\",\"individualization_user_tags\":[],\"elements\":[{\"id\":2639,\"module_id\":379,\"name\":\"blank-element\",\"icon\":\"icon-blank-element\",\"desc\":\"\u7a7a\u767d\u5143\u7d20\",\"sort\":0,\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":50,\"maxHeight\":9999,\"width\":502,\"height\":120,\"left\":0,\"top\":0,\"zIndex\":1},\"type\":\"element\",\"created_at\":\"2020-05-1119:17:59\",\"updated_at\":\"2020-05-1119:17:59\",\"remark\":null,\"link\":null,\"group\":null,\"data\":[]},{\"id\":2640,\"module_id\":379,\"name\":\"navigation-collection-element\",\"icon\":\"icon-navigation-collection-element\",\"desc\":\"\u4e13\u573a\u5bfc\u822a\",\"sort\":0,\"style\":{\"minWidth\":73,\"maxWidth\":502,\"minHeight\":25,\"maxHeight\":9999,\"width\":73,\"height\":100,\"left\":8,\"top\":6,\"zIndex\":2},\"type\":\"element\",\"created_at\":\"2020-05-1119:17:59\",\"updated_at\":\"2020-05-1119:17:59\",\"remark\":null,\"link\":null,\"group\":\"navigation-collection\",\"data\":{\"text\":{\"value\":\"\u4e0a\u65b0\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":36,\"height\":21,\"left\":20,\"top\":74,\"zIndex\":2}},\"img\":{\"value\":\"https:\/\/xpx-image.oss-cn-shenzhen.aliyuncs.com\/saas\/scheme\/navigation\/navigation_1.jpg\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":71,\"height\":71,\"left\":0,\"top\":0,\"zIndex\":2}},\"link\":{\"value\":null,\"style\":[]},\"collection\":{\"value\":null,\"style\":[]},\"remark\":{\"value\":null,\"style\":[]}}},{\"id\":2644,\"module_id\":379,\"name\":\"navigation-element\",\"icon\":\"icon-navigation-element\",\"desc\":\"\u5206\u7c7b\u5bfc\u822a\",\"sort\":0,\"style\":{\"minWidth\":73,\"maxWidth\":502,\"minHeight\":25,\"maxHeight\":9999,\"width\":73,\"height\":100,\"left\":332,\"top\":6,\"zIndex\":2},\"type\":\"element\",\"created_at\":\"2020-05-1119:17:59\",\"updated_at\":\"2020-05-1119:17:59\",\"remark\":null,\"link\":null,\"group\":\"navigation\",\"data\":{\"text\":{\"value\":\"\u98ce\u8863\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":36,\"height\":21,\"left\":20,\"top\":74,\"zIndex\":2}},\"img\":{\"value\":\"https:\/\/xpx-image.oss-cn-shenzhen.aliyuncs.com\/saas\/scheme\/navigation\/navigation_5.jpg\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":71,\"height\":71,\"left\":0,\"top\":0,\"zIndex\":2}},\"link\":{\"value\":null,\"style\":[]},\"category\":{\"value\":null,\"style\":[]},\"remark\":{\"value\":null,\"style\":[]}}},{\"id\":2645,\"module_id\":379,\"name\":\"navigation-element\",\"icon\":\"icon-navigation-element\",\"desc\":\"\u5206\u7c7b\u5bfc\u822a\",\"sort\":0,\"style\":{\"minWidth\":73,\"maxWidth\":502,\"minHeight\":25,\"maxHeight\":9999,\"width\":73,\"height\":100,\"left\":413,\"top\":6,\"zIndex\":2},\"type\":\"element\",\"created_at\":\"2020-05-1119:17:59\",\"updated_at\":\"2020-05-1119:17:59\",\"remark\":null,\"link\":null,\"group\":\"navigation\",\"data\":{\"text\":{\"value\":\"\u7fbd\u7ed2\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":36,\"height\":21,\"left\":20,\"top\":74,\"zIndex\":2}},\"img\":{\"value\":\"https:\/\/xpx-image.oss-cn-shenzhen.aliyuncs.com\/saas\/scheme\/navigation\/navigation_6.jpg\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":71,\"height\":71,\"left\":0,\"top\":0,\"zIndex\":2}},\"link\":{\"value\":null,\"style\":[]},\"category\":{\"value\":null,\"style\":[]},\"remark\":{\"value\":null,\"style\":[]}}}]}]}"},{"descriptions":["\u4fdd\u5b58\u9875\u9762"],"url":{"method":"post","path":"\/scheme\/record\/page\/{page_id}","description":""},"params":[{"type":"array","name":"modules","required":true,"default":null,"description":"\u6a21\u7248\u5185\u5bb9"}]}],"info":{"descriptions":["\u7b56\u5212\u9875\u9762"]}},"\u5143\u7d20":{"api":[{"descriptions":["\u67e5\u8be2\u6a21\u5757\u7684\u5143\u7d20"],"url":{"method":"get","path":"\/scheme\/record\/page\/module\/element","description":""},"params":[{"type":"string","name":"name","required":true,"default":null,"description":"\u5143\u7d20\u7684\u540d\u79f0"},{"type":"string","name":"element_name","required":false,"default":null,"description":"\u7528\u6237\u5b9a\u4e49\u7684\u5143\u7d20\u540d\u79f0"},{"type":"int","name":"page_id","required":false,"default":null,"description":"\u9875\u9762id"},{"type":"int","name":"is_my_template","required":false,"default":null,"description":"\u662f\u4e2a\u5c5e\u4e8e\u4e2a\u4eba\u7684\u5143\u7d20\u53ea\u67090\u8ddf1\u7684\u503c"}],"return_format":{"type":"array","child":[{"type":"int","name":"module_template_id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"icon","child":[]},{"type":"string","name":"desc","child":[]},{"type":"int","name":"sort","child":[]},{"type":"object","name":"style","child":[]},{"type":"string","name":"remark","child":[]},{"type":"string","name":"element_name","child":[]},{"type":"int","name":"page_id","child":[]},{"type":"object","name":"data","child":[]},{"type":"int","name":"template_id","child":[]}]},"return_example":"[{\"module_template_id\":4,\"name\":\"navigation-element\",\"icon\":\"icon-navigation-element\",\"desc\":\"\u5206\u7c7b\u5bfc\u822a\",\"sort\":7,\"style\":{\"minWidth\":73,\"maxWidth\":502,\"minHeight\":25,\"maxHeight\":9999,\"width\":73,\"height\":100,\"left\":413,\"top\":6,\"zIndex\":2},\"remark\":null,\"link\":null,\"element_name\":null,\"page_id\":0,\"brand_id\":0,\"store_id\":0,\"group\":\"navigation\",\"data\":{\"text\":{\"value\":\"\u7fbd\u7ed2\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":36,\"height\":21,\"left\":20,\"top\":74,\"zIndex\":2}},\"img\":{\"value\":\"xxxxx\",\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":10,\"maxHeight\":9999,\"width\":71,\"height\":71,\"left\":0,\"top\":0,\"zIndex\":2}},\"link\":{\"value\":null,\"style\":[]},\"category\":{\"value\":null,\"style\":[]},\"remark\":{\"value\":null,\"style\":[]}},\"template_id\":54}]"},{"descriptions":["\u65b0\u589e\/\u4fdd\u5b58\u6a21\u5757\u7684\u5143\u7d20"],"url":{"method":"post","path":"\/scheme\/record\/page\/module\/element","description":""},"params":[{"type":"string","name":"module_id","required":true,"default":null,"description":"\u5143\u7d20\u6240\u5f52\u5c5e\u7684\u6a21\u5757id"},{"type":"string","name":"name","required":true,"default":null,"description":"\u5143\u7d20\u540d\u79f0"},{"type":"string","name":"icon","required":true,"default":null,"description":"\u5143\u7d20icon"},{"type":"string","name":"desc","required":true,"default":null,"description":""},{"type":"int","name":"sort","required":true,"default":null,"description":"\u6392\u5e8f"},{"type":"object","name":"style","required":true,"default":null,"description":""},{"type":"string","name":"type","required":true,"default":null,"description":""},{"type":"string","name":"remark","required":false,"default":null,"description":""},{"type":"string","name":"group","required":true,"default":null,"description":""},{"type":"object","name":"data","required":true,"default":null,"description":""},{"type":"string","name":"element_name","required":true,"default":null,"description":""},{"type":"int","name":"page_id","required":true,"default":null,"description":""},{"type":"int","name":"store_id","required":true,"default":null,"description":""},{"type":"int","name":"brand_id","required":false,"default":null,"description":""},{"type":"int","name":"device_id","required":false,"default":null,"description":""}],"return_format":{"type":"object","child":[{"type":"int","name":"id","child":[]}]},"return_example":"{\"id\":1}"},{"descriptions":["\u5220\u9664\u5143\u7d20"],"url":{"method":"delete","path":"\/scheme\/record\/page\/module\/element\/{element_id}","description":""}}],"info":{"descriptions":["\u7b56\u5212\u9875\u9762"]}},"\u5546\u54c1":{"api":[{"descriptions":["\u83b7\u53d6\u5546\u54c1\u5206\u7c7b"],"url":{"method":"get","path":"\/scheme\/record\/page\/goods\/category","description":""},"return_format":{"type":"array","child":[{"type":"int","name":"id","child":[]},{"type":"int","name":"pid","child":[]},{"type":"string","name":"name","child":[]},{"type":"int","name":"platform_id","child":[]}]},"return_example":"[{\"id\":1,\"pid\":1,\"name\":\"\u5927\u8863\",\"type\":\"index\",\"platform_id\":11}]"},{"descriptions":["\u83b7\u53d6\u5bfc\u822a\u5546\u54c1\u63a8\u8350"],"url":{"method":"get","path":"\/scheme\/record\/page\/goods\/nav_suggest","description":""},"params":[{"type":"int","name":"collection_num","required":false,"default":"1","description":"\u4e13\u573a\u6570\u91cf"},{"type":"int","name":"category_num","required":false,"default":"1","description":"\u5206\u7c7b\u6570\u91cf"}],"return_format":{"type":"object","child":[{"type":"array","name":"collections","child":[{"type":"int","name":"id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"img","child":[]},{"type":"array","name":"categories","child":[{"type":"strin","name":"name","child":[]}]},{"type":"string","name":"img","child":[]},{"type":"int","name":"id","child":[]}]}]},"return_example":"{\"collections\":[{\"id\":1,\"name\":\"\u4e0a\u65b0\",\"img\":\"xxxxx\"}],\"categories\":[{\"id\":1,\"name\":\"\u5927\u8863\",\"img\":\"xxxxx\"}]}"},{"descriptions":["\u83b7\u53d6\u5143\u7d20\u5185\u7684\u5546\u54c1\u63a8\u8350"],"url":{"method":"post","path":"\/scheme\/record\/page\/goods\/element","description":""},"params":[{"type":"int","name":"category_id","required":false,"default":"0","description":"\u5206\u7c7bid"},{"type":"int","name":"page_type","required":false,"default":"0","description":"\u7c7b\u578b"},{"type":"int","name":"num","required":false,"default":"10","description":"\u6570\u91cf"},{"type":"int","name":"inventory","required":false,"default":"30","description":"\u5e93\u5b58"},{"type":"string","name":"goods_sn","required":false,"default":"''","description":"\u5546\u54c1\u7f16\u53f7"},{"type":"array","name":"seasons","required":false,"default":"[]","description":"\u5b63\u8282"},{"type":"array","name":"year","required":false,"default":"[]","description":"\u5e74\u4efd"},{"type":"bool","name":"is_pool_enable","required":false,"default":"false","description":"\u5e74\u4efd"},{"type":"int","name":"months","required":false,"default":"3","description":""},{"type":"int","name":"emphasis_type","required":false,"default":"none","description":""},{"type":"object","name":"emphasis_years","required":false,"default":"[]","description":"\u5360\u6bd4"},{"type":"object","name":"emphasis_seasons","required":false,"default":"[]","description":""},{"type":"object","name":"emphasis_category_ids","required":false,"default":"[]","description":""},{"type":"int","name":"emphasis_period","required":false,"default":"0","description":""},{"type":"int","name":"recommend_type","required":false,"default":"0","description":""},{"type":"int","name":"condition_type","required":false,"default":"0","description":""},{"type":"int","name":"data_source","required":false,"default":"30","description":""},{"type":"int","name":"platform","required":false,"default":"0","description":""}],"return_format":{"type":"array","child":[{"type":"int","name":"benchmark_price","child":[]},{"type":"int","name":"brand_id","child":[]},{"type":"int","name":"favorites","child":[]},{"type":"int","name":"gacq","child":[]},{"type":"string","name":"goods_name","child":[]},{"type":"string","name":"goods_sn","child":[]},{"type":"int","name":"gpq","child":[]},{"type":"int","name":"id","child":[]},{"type":"string","name":"img","child":[]},{"type":"int","name":"inventory","child":[]},{"type":"int","name":"paid_amounts","child":[]},{"type":"int","name":"platform","child":[]},{"type":"string","name":"platform_id","child":[]},{"type":"int","name":"pv","child":[]},{"type":"int","name":"sales_cycle","child":[]},{"type":"int","name":"season","child":[]},{"type":"int","name":"standard_price","child":[]},{"type":"int","name":"store_id","child":[]},{"type":"string","name":"url","child":[]},{"type":"int","name":"year","child":[]}]},"return_example":"[{\"benchmark_price\":1298,\"brand_id\":232428,\"category_id\":1355,\"created_at\":\"2020-04-1519:08:58\",\"favorites\":0,\"gacq\":0,\"goods_name\":\"\u80cc\u5fc3\",\"goods_sn\":\"2070310219\",\"gpq\":0,\"id\":113,\"img\":\"xxxx\",\"inventory\":32,\"paid_amounts\":0,\"platform\":2,\"platform_id\":\"11570884872\",\"pv\":0,\"sales_cycle\":90,\"season\":2,\"standard_price\":1298,\"store_id\":642382,\"url\":\"xxxx\",\"year\":2018}]"},{"descriptions":["\u5546\u54c1\u641c\u7d22"],"url":{"method":"get","path":"\/scheme\/record\/page\/goods\/search","description":""},"params":[{"type":"array","name":"goods_sn","required":true,"default":null,"description":"\u5546\u54c1\u7f16\u53f7"}],"return_format":{"type":"array","child":[{"type":"int","name":"benchmark_price","child":[]},{"type":"int","name":"brand_id","child":[]},{"type":"int","name":"favorites","child":[]},{"type":"int","name":"gacq","child":[]},{"type":"string","name":"goods_name","child":[]},{"type":"string","name":"goods_sn","child":[]},{"type":"int","name":"gpq","child":[]},{"type":"int","name":"id","child":[]},{"type":"string","name":"img","child":[]},{"type":"int","name":"inventory","child":[]},{"type":"int","name":"paid_amounts","child":[]},{"type":"int","name":"platform","child":[]},{"type":"string","name":"platform_id","child":[]},{"type":"int","name":"pv","child":[]},{"type":"int","name":"sales_cycle","child":[]},{"type":"int","name":"season","child":[]},{"type":"int","name":"standard_price","child":[]},{"type":"int","name":"store_id","child":[]},{"type":"string","name":"url","child":[]},{"type":"int","name":"year","child":[]}]},"return_example":"[{\"benchmark_price\":1298,\"brand_id\":232428,\"category_id\":1355,\"created_at\":\"2020-04-1519:08:58\",\"favorites\":0,\"gacq\":0,\"goods_name\":\"\u80cc\u5fc3\",\"goods_sn\":\"2070310219\",\"gpq\":0,\"id\":113,\"img\":\"xxxx\",\"inventory\":32,\"paid_amounts\":0,\"platform\":2,\"platform_id\":\"11570884872\",\"pv\":0,\"sales_cycle\":90,\"season\":2,\"standard_price\":1298,\"store_id\":642382,\"url\":\"xxxx\",\"year\":2018}]"}],"info":{"descriptions":["\u7b56\u5212\u9875\u9762"]}},"\u6a21\u5757":{"api":[{"descriptions":["\u67e5\u8be2\u6a21\u5757"],"url":{"method":"get","path":"\/scheme\/record\/page\/module","description":""},"params":[{"type":"string","name":"name","required":true,"default":null,"description":"\u6a21\u5757\u7684\u540d\u79f0"},{"type":"string","name":"module_name","required":false,"default":null,"description":"\u7528\u6237\u5b9a\u4e49\u7684\u540d\u79f0"},{"type":"int","name":"is_my_template","required":false,"default":null,"description":"\u662f\u4e2a\u5c5e\u4e8e\u4e2a\u4eba\u7684\u6a21\u5757\u53ea\u67090\u8ddf1\u7684\u503c"}],"return_format":{"type":"object","child":[{"type":"int","name":"page_id","child":[]},{"type":"int","name":"brand_id","child":[]},{"type":"int","name":"store_id","child":[]},{"type":"int","name":"device_id","child":[]},{"type":"string","name":"name","child":[]},{"type":"string","name":"icon","child":[]},{"type":"string","name":"desc","child":[]},{"type":"int","name":"sort","child":[]},{"type":"object","name":"style","child":[]},{"type":"object","name":"filter","child":[]},{"type":"string","name":"remark","child":[]},{"type":"array","name":"group","child":[]},{"type":"string","name":"module_name","child":[]},{"type":"array","name":"individualization","child":[]},{"type":"string","name":"individualization_id","child":[]},{"type":"string","name":"individualization_name","child":[]},{"type":"array","name":"individualization_user_tags","child":[]},{"type":"array","name":"elements","child":[]},{"type":"int","name":"template_id","child":[]}]},"return_example":"{\"page_id\":16,\"brand_id\":1,\"store_id\":1,\"device_id\":2,\"name\":\"navigation-module\",\"icon\":\"icon-navigation-module\",\"desc\":\"\u7535\u68af\u5bfc\u822a\",\"sort\":1,\"style\":{\"backgroundImage\":null,\"backgroundRepeat\":\"no-repeat\",\"backgroundSize\":\"contain\"},\"filter\":{\"number\":5},\"created_at\":\"2020-05-1117:22:52\",\"updated_at\":\"2020-05-1117:22:52\",\"remark\":null,\"group\":[\"navigation\",\"navigation-collection\",\"text\",\"image\"],\"module_name\":\"\u7535\u68af\u5bfc\u822a\",\"user_id\":0,\"individualization\":[],\"individualization_id\":\"individualization_id_48fe6600-9350-11ea-a18e-ebbb7d106b34_412877_create\",\"individualization_name\":\"\u9ed8\u8ba4\u7248\",\"individualization_user_tags\":[],\"elements\":[{\"id\":48,\"module_template_id\":4,\"name\":\"blank-element\",\"icon\":\"icon-blank-element\",\"desc\":\"\u7a7a\u767d\u5143\u7d20\",\"sort\":1,\"style\":{\"minWidth\":10,\"maxWidth\":502,\"minHeight\":50,\"maxHeight\":9999,\"width\":502,\"height\":1115,\"left\":0,\"top\":0,\"zIndex\":1},\"created_at\":\"2020-05-1117:22:52\",\"updated_at\":\"2020-05-1117:22:52\",\"remark\":null,\"link\":null,\"element_name\":null,\"user_id\":0,\"page_id\":0,\"brand_id\":0,\"store_id\":0,\"group\":null,\"data\":[]}],\"template_id\":4}"},{"descriptions":["\u4fdd\u5b58\/\u65b0\u589e\u6a21\u5757"],"url":{"method":"post","path":"\/scheme\/record\/page\/module","description":""},"params":[{"type":"int","name":"page_id","required":true,"default":null,"description":"\u9875\u9762id"},{"type":"array","name":"elemrnts","required":true,"default":null,"description":"\u5143\u7d20"},{"type":"string","name":"name","required":true,"default":null,"description":"\u6a21\u5757\u540d\u79f0"},{"type":"string","name":"icon","required":true,"default":null,"description":"\u6a21\u7248icon"},{"type":"string","name":"desc","required":true,"default":null,"description":"\u6a21\u7248\u7b80\u4ecb"},{"type":"string","name":"type","required":true,"default":null,"description":"\u6a21\u7248\u7c7b\u578b"},{"type":"int","name":"sort","required":true,"default":null,"description":"\u6392\u5e8f"},{"type":"object","name":"style","required":true,"default":null,"description":""},{"type":"object","name":"filter","required":true,"default":null,"description":""},{"type":"object","name":"group","required":true,"default":null,"description":""},{"type":"string","name":"remark","required":true,"default":null,"description":""},{"type":"string","name":"module_name","required":true,"default":null,"description":"\u7528\u6237\u5b9a\u4e49\u7684\u540d\u79f0"},{"type":"string","name":"individualization","required":true,"default":null,"description":""},{"type":"string","name":"individualization_id","required":true,"default":null,"description":""},{"type":"string","name":"individualization_name","required":true,"default":null,"description":""},{"type":"array","name":"individualization_user_tags","required":true,"default":null,"description":""}],"return_format":{"type":"object","child":[{"type":"int","name":"id","child":[]}]},"return_example":"{\"id\":1}"},{"descriptions":["\u5220\u9664\u6a21\u5757"],"url":{"method":"delete","path":"\/scheme\/record\/page\/module\/{module_id}","description":""}},{"descriptions":["\u5207\u6362\u9875\u9762\u7684\u6240\u6709\u6a21\u5757"],"url":{"method":"post","path":"\/scheme\/record\/page\/module\/change","description":""},"params":[{"type":"int","name":"page_id","required":true,"default":null,"description":"\u9875\u9762id"},{"type":"array","name":"data","required":true,"default":null,"description":"\u6a21\u7248\u6570\u636e"},{"type":"int","name":"template_id","required":true,"default":null,"description":"\u6a21\u7248id"}],"return_format":{"type":"object","child":[{"type":"int","name":"id","child":[]}]},"return_example":"{\"id\":1}"}],"info":{"descriptions":["\u7b56\u5212\u9875\u9762"]}}},"\u4e0a\u4f20":{"\u6587\u4ef6":{"api":[{"descriptions":["\u5bfc\u5165excel\u4e0a\u4f20\u5546\u54c1\u4ef7\u683c"],"url":{"method":"post","path":"\/upload\/import\/{record_id}","description":""},"params":[{"type":"string","name":"name","required":true,"default":null,"description":"\u6587\u4ef6\u7684\u540d\u79f0"},{"type":"string","name":"path","required":true,"default":null,"description":"oss\u7684\u6587\u4ef6\u8def\u5f84"}]},{"descriptions":["\u4e0a\u4f20\u5546\u54c1\u76f8\u5173\u56fe\u7247(\u4e3b\u56fe\/\u7ad6\u56fe\/\u65b9\u56fe)"],"url":{"method":"post","path":"\/upload\/json\/goods","description":""},"params":[{"type":"int","name":"sid","required":true,"default":null,"description":"\u5207\u5e93\u9700\u8981\u7684sid\uff08\u5e73\u53f0\u5e97\u94fa\u7684ID\u5b57\u6bb5\uff09"},{"type":"array","name":"data","required":true,"default":null,"description":"json\u6570\u636e"},{"type":"int","name":"data[].ware_id","required":true,"default":null,"description":"\u5546\u54c1\u5e73\u53f0id"},{"type":"string","name":"data[].goods_sn","required":true,"default":null,"description":"\u5546\u54c1\u8d27\u53f7\/\u5546\u54c1\u7f16\u7801"},{"type":"string","name":"data[].main_img","required":true,"default":null,"description":"\u4e3b\u56fe\u8fde\u63a5"},{"type":"string","name":"data[].vertical_img","required":true,"default":null,"description":"\u7ad6\u56fe\u8fde\u63a5"},{"type":"string","name":"data[].vertical_img2","required":false,"default":null,"description":"\u7ad6\u56fe\u8fde\u63a53:4\u6bd4\u4f8b"}]}],"info":{"descriptions":["\u4e0a\u4f20\u76f8\u5173\u7684\u64cd\u4f5c"]}}},"\u7528\u6237\u670d\u52a1":{"\u83b7\u53d6\u7528\u6237\u7684\u6743\u9650":{"api":[{"descriptions":["\u83b7\u53d6\u7528\u6237\u7684\u7b56\u5212\u9875\u9762\u6743\u9650"],"url":{"method":"get","path":"\/user\/premissions","description":""},"return_format":{"type":"array","child":[{"type":"array","name":"http_method","child":[]},{"type":"array","name":"route_name","child":[]},{"type":"array","name":"http_path","child":[]},{"type":"array","name":"page_node","child":[]}]},"return_example":"[{\"name\":\"\\u6700\\u9ad8\\u6743\\u9650\",\"slug\":\"root\",\"http_method\":[],\"http_path\":[\"*\"],\"route_name\":[\"*\"],\"page_node\":[\"*\"]}]"}],"info":{"descriptions":["\u7528\u6237\u670d\u52a1"]}}}}}
+{
+    "title": "example",
+    "version": "2.0",
+    "content": [
+        {
+            "apis": [
+                {
+                    "param": [
+                        {
+                            "name": "names",
+                            "type": "object",
+                            "required": true,
+                            "default": null,
+                            "description": "\u8fd9\u4e2a\u662f\u53c2\u6570\u7684\u8bf4\u660e",
+                            "children": [
+                                {
+                                    "name": "depth1",
+                                    "type": "object",
+                                    "required": false,
+                                    "default": "-",
+                                    "description": "",
+                                    "children": [
+                                        {
+                                            "name": "depth2",
+                                            "type": "object",
+                                            "required": false,
+                                            "default": null,
+                                            "description": "",
+                                            "children": [
+                                                {
+                                                    "name": "depth3",
+                                                    "type": "int",
+                                                    "required": false,
+                                                    "default": 999999,
+                                                    "description": "",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "name": "depth4",
+                                                    "type": "string",
+                                                    "required": false,
+                                                    "default": "depth4 string",
+                                                    "description": "",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "response": [
+                        {
+                            "code": 200,
+                            "param": [
+                                {
+                                    "name": "code",
+                                    "type": "int",
+                                    "required": false,
+                                    "default": "-",
+                                    "description": "",
+                                    "children": []
+                                },
+                                {
+                                    "name": "result",
+                                    "type": "any",
+                                    "required": false,
+                                    "default": "-",
+                                    "description": "",
+                                    "children": []
+                                },
+                                {
+                                    "name": "state",
+                                    "type": "bool",
+                                    "required": false,
+                                    "default": "-",
+                                    "description": "",
+                                    "children": []
+                                }
+                            ],
+                            "description": ""
+                        }
+                    ],
+                    "version": "2.3",
+                    "author": "Rhodri",
+                    "method": "get",
+                    "path": "\/test\/"
+                }
+            ],
+            "group": "defalut"
+        },
+        {
+            "apis": [
+                {
+                    "param": [
+                        {
+                            "name": "obj",
+                            "type": "object",
+                            "required": true,
+                            "default": null,
+                            "description": "",
+                            "children": [
+                                {
+                                    "name": "name",
+                                    "type": "string",
+                                    "required": false,
+                                    "default": "test_name",
+                                    "description": "",
+                                    "children": []
+                                },
+                                {
+                                    "name": "age",
+                                    "type": "int",
+                                    "required": false,
+                                    "default": 12,
+                                    "description": "",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "names",
+                            "type": "object",
+                            "required": true,
+                            "default": {
+                                "data": [
+                                    "name2",
+                                    "name2"
+                                ]
+                            },
+                            "description": "\u8fd9\u4e2a\u662f\u53c2\u6570\u7684\u8bf4\u660e",
+                            "children": [
+                                {
+                                    "name": "depth1",
+                                    "type": "object",
+                                    "required": false,
+                                    "default": "-",
+                                    "description": "",
+                                    "children": [
+                                        {
+                                            "name": "depth2",
+                                            "type": "object",
+                                            "required": false,
+                                            "default": null,
+                                            "description": "",
+                                            "children": [
+                                                {
+                                                    "name": "depth3",
+                                                    "type": "int",
+                                                    "required": false,
+                                                    "default": 0,
+                                                    "description": "",
+                                                    "children": []
+                                                },
+                                                {
+                                                    "name": "depthd2",
+                                                    "type": "float",
+                                                    "required": false,
+                                                    "default": 0,
+                                                    "description": "",
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "description": "api\u8bf4\u660e",
+                    "auth": [
+                        {
+                            "source": "head",
+                            "name": "token",
+                            "defalut": "-"
+                        }
+                    ],
+                    "method": "post",
+                    "path": "\/user\/{id}"
+                }
+            ],
+            "group": "\u5206\u7ec41"
+        }
+    ],
+    "globalTags": {
+        "code": [
+            {
+                "code": "2000",
+                "description": "11111"
+            },
+            {
+                "code": "3000",
+                "description": "dwqdwqp"
+            },
+            {
+                "code": "4000",
+                "description": "3333333"
+            },
+            {
+                "code": "5000",
+                "description": "2222222"
+            },
+            {
+                "code": "6000",
+                "description": "666666"
+            }
+        ],
+        "baseHost": [
+            "localhost"
+        ]
+    }
+}

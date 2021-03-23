@@ -1,25 +1,13 @@
 import {createStore} from "redux";
-import {StoreData,Action,ACTION_TYPE, v2Data, v2Apis} from "./format";
+import {getHandler,initData} from "./handle"
 
 function storeActive(store:StoreData | undefined,action:Action):StoreData{
-    let NewStore=Object.assign({},store)
-    let target=NewStore[action.key];
-    switch(action.type){
-        case ACTION_TYPE.SAVE: 
-            NewStore.data=[action.content]
-            NewStore.current=action.content
-        break;
-        case ACTION_TYPE.MERAGE:
-            (NewStore[action.key] as any)=(target as Array<v2Data>).concat(action.content)
-            break;
-        case ACTION_TYPE.CHANGE:
-            (NewStore[action.key] as v2Data|v2Apis)=action.content
-            break;
-        case ACTION_TYPE.COVER:
-            (NewStore[action.key] as any)=action.content
-            break;
+    let handle=getHandler(action.type);
+    let newStore=initData(store);
+    if(handle && action.content){
+        newStore=handle(newStore,action.content)
     }
-    return NewStore
+    return  newStore;
 }
 
 export const store=createStore(storeActive);
