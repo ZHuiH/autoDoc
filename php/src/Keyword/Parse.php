@@ -27,9 +27,10 @@ class Parse
             if (!$data) {
                 return [];
             }
-            $isAlone = $this->handler[$keywork]::isAlone();
+            
             return [
-                'isAlone' => $isAlone,
+                'isAlone' => $this->handler[$keywork]::isAlone(),
+                'isOutside' => $this->handler[$keywork]::isOutside(),
                 'keywork' => $keywork,
                 'data' => $data,
             ];

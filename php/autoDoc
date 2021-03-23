@@ -6,13 +6,10 @@ use Auto\Doc\Console\Printf;
 
 $options = [
     'output' => "./doc.json",
-    'version' => "1.0",
-    'render' => 2.0,
     'title' => "",
 ];
 $aliases = [
     'o' => 'output',
-    'v' => 'version',
     't' => 'title',
 ];
 if ($argc < 2) {
@@ -50,8 +47,9 @@ foreach ($files as $item) {
 };
 $result = [
     'title' => $options['title'],
-    'version' => $options['version'],
-    'render' => $options['render'],
+    'version' => '2.0',
     'content' => $kernel->merge($notes),
+    'globalTags'=>$kernel->getGlobalTags(),
 ];
+
 file_put_contents('./data.json', json_encode($result));

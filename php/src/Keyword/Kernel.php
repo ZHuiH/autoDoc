@@ -18,11 +18,20 @@ class Kernel
      */
     private $parse = null;
 
+    /**
+     * @var array 全局外置标签存放位置
+     */
+    private $golbals=[];
+
     //private $mode = 1;
     public function __construct()
     {
         $this->attr = new Attr;
         $this->parse = new Parse;
+    }
+
+    public function getGlobalTags(){
+        return $this->golbals;
     }
 
     public function boot(File $file)
@@ -49,12 +58,19 @@ class Kernel
             $this->attr->reset();
             $keyword = $this->attr->getKeyword($item);
             $paramStr = $this->attr->trimKeywork($keyword, $item);
-            if ($paramStr) {
+            if ($paramStr) { 
                 $this->attr->split($paramStr);
                 $this->attr->parseFlag($handler);
                 $input = $this->attr->setInput();
                 $param = $handler($keyword, $input);
                 if (sizeof($param) > 0) {
+                    if($param['isOutside']){
+                        if(!isset($this->golbals[$keyword])){
+                            $this->golbals[$keyword]=[];
+                        }
+                        array_push($this->golbals[$keyword],$param['data']);
+                        continue;
+                    }
                     if ($param['isAlone']) {
                         $result[$keyword] = $param['data'];
                         continue;

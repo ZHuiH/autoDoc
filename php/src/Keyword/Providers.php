@@ -8,4 +8,8 @@ return [
     'param' => \Auto\Doc\Keyword\Handler\Param::class,
     'auth' => \Auto\Doc\Keyword\Handler\Auth::class,
     'response' => \Auto\Doc\Keyword\Handler\Response::class,
+    'code' => \Auto\Doc\Keyword\Handler\Code::class,
+    'version' => \Auto\Doc\Keyword\Handler\Version::class,
+    'author' => \Auto\Doc\Keyword\Handler\Author::class,
+    'baseHost' => \Auto\Doc\Keyword\Handler\BaseHost::class,
 ];

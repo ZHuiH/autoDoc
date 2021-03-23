@@ -9,8 +9,8 @@
  * 
  * @param(depth1,object,false,
  *  @param(depth2,object,false,
- *      @param(depth3,object,false),
- *      @param(depth4,object,false),
+ *      @param(depth3,int,false,999999),
+ *      @param(depth4,string,false,depth4 string),
  * )
  * ),
  * @description(这个是参数的说明),
@@ -21,6 +21,8 @@
  * @param(result,any),
  * @param(state,bool)
  * )
+ * @doc\version(2.3)
+ * @doc\author(Rhodri)
  */
 
 
@@ -46,4 +48,5 @@
  * )
  * @doc\api(post,/user/{id})
  * @doc\auth(head,token)
+ * ,
  */
